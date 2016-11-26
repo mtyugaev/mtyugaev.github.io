@@ -1,89 +1,70 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <!-- Meta, title, CSS, favicons, etc. -->
+<html>
+  <head>
     <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Example</title>
-    <!-- Plugins -->
-    <script src="lib/jquery.1.7.1.min.js"></script>
-    <script type="text/javascript" src="lib/number-divider.min.js"></script>
-    <!--Styles-->
-    <style type="text/css">
-        .form-example {
-            padding: 10px;
-            background: lightsteelblue;
-            display: inline-block;
-            border-radius: 5px;
-        }
-        .important {
-            background: green;
-            padding: 5px;
-            color: white;
-            display: initial;
-        }
-    </style>
-</head>
-<body>
-    <h3><a href="https://github.com/tyugaev/jquery-number-divider#readme">Show docs</a></h3>
-    <h3>Introduction</h3>
-    <p><label class="important">Type of inputs must be 'text', original number you can get simple using jQuery val()</label></p>
-    <label>Divide thousand(1000..9999)</label>
-    <input id="checkbox" title="Divide thousand(1000..9999)" type="checkbox" name="checkbox" checked="checked" />
-    <select id="select" title="delimiters">
-      <option value=" ">' '(space)</option>
-      <option value=".">'.'(dot)</option>
-      <option selected="selected" value=",">','(comma)</option>
-    </select>
-    <br><br>
-    <h3>Using in inputs</h3>
-    <input class="divide" id="input" type="text" placeholder="Enter the number" value="3000">
-    <button onclick="alert($('#input').val());">Get clear value</button>
-    <br><br>
-    <input class="divide" id="range_label" disabled="disabled" type="text" value="5000">
-    <input id="range_input" max="1000000" min="5000" step="5000" type="range" style="width: 250px;">
-    <br><br><br>
-    <h3>Using in HTML tags</h3>
-    <p><label>Also you can divide numbers in simple HTML tags</label></p>
-    <div class="divide">1000</div>
-    <p><span class="divide">10000</span></p>
-    <p><label class="divide">1000000</label></p>
-    <br>
-    <h3>Using in form</h3>
-    <p class="important">
-        <label>If you wish use it in form, plugin will automatically do it for you!</label>
-        <label>Formatted values will be auto replaced on original values</label>
-    </p>
-    <p><label>Click on the button for to show form data in browser address panel</label></p>
-    <div class="form-example">
-        <form method="get">
-            <label>Simple GET form</label>
-            <p><input class="divide" name="login" placeholder="Enter login" required type="text"></p>
-            <p><input class="divide" name="password" placeholder="Enter password" required type="text"></p>
-            <button type="submit">Confirm</button>
-        </form>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>number-divider.js</title>
+    <link href="img/favicon.ico" rel="shortcut icon" type="image/x-icon">
+    <link href="css/style.css" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=PT+Sans:400,700&amp;amp;subset=cyrillic" rel="stylesheet">
+  </head>
+  <body>
+    <header class="header">
+      <h1 class="header__title">number-divider.js</h1><span>jQuery number divider </span>
+    </header>
+    <div class="example example_half">
+      <div class="title">Example 1</div>
+      <div class="example-slider">
+        <input type="text" readonly class="example-slider__amount example-slider__amount_large example_1">
+        <div class="example-slider__slider">
+          <div class="slider slider_1">
+            <div class="slider__handler ui-slider-handle"></div>
+          </div>
+        </div>
+      </div>
+      <pre><code>&lt;div class=&rdquo;divider&rdquo;&gt;500&lt;/div&gt;</code></pre>
     </div>
-
-    <script type="text/javascript">
-        var input = $('#input');
-        var checkbox = $('#checkbox');
-        var select = $('#select');
-        var rangeLabel = $('#range_label');
-
-        $('.divide').divide();
-
-        $(select).add(checkbox).change(function () {
-            $('.divide').divide({
-                delimiter:select.val(),
-                divideThousand:checkbox.is(":checked")
-            });
-        });
-
-        $('#range_input').on("input change", function() {
-            rangeLabel.val(this.value);
-        });
-    </script>
-</body>
+    <div class="example example_half">
+      <div class="title">Example 2</div>
+      <div class="example-slider">
+        <input type="text" autofocus class="example-slider__amount example-slider__amount_input example_2">
+        <div class="example-slider__slider">
+          <div class="slider slider_2">
+            <div class="slider__handler ui-slider-handle"></div>
+          </div>
+        </div>
+      </div>
+      <pre><code>&lt;input type=&rdquo;text&rdquo; class=&rdquo;divider&rdquo;/&gt;</code></pre>
+    </div>
+    <div class="install">
+      <h2>Install</h2><a href="lib/number-divider.min.js" class="install-button"><img src="img/js.svg" class="install-button__image"><span class="install-button__download">Download</span>
+        <h2 class="install-button__name">number-divider.js</h2></a><a href="https://github.com/tyugaev/jquery-number-divider" class="github"><img src="img/gh.svg" class="github__logo">Get in Github</a>
+      <div class="install__item install__item_m-bottom">
+        <div class="title">Bower</div>
+        <pre><code>bower install number-divider</code></pre>
+      </div>
+      <div class="install__item">
+        <div class="title">Include the number-divider.js file in your site</div>
+        <pre><code>&lt;script src=&quot;lib/number-divider.min.js&quot;&gt;&lt;/script&gt;</code></pre>
+      </div>
+      <div class="install__item install__item_m-bottom">
+        <div class="title">Initialize with jQuery</div>
+        <pre><code>$('.divider').divider();</code></pre>
+      </div>
+      <div class="install__item"> 
+        <div class="title">Options</div>
+        <pre><code></code>$('.divider').divider({
+          <div class="comment">   // current delimiter</div>   delimiter:' ',
+          <div class="comment">   // 1000 or 1,000</div>   divideThousand:false
+&nbsp
+});</pre>
+      </div>
+    </div>
+    <div class="footer"><span class="author">Made&nbspby<a href="https://github.com/tyugaev">Mikhail&nbspTyugaev</a></span><span class="author">Concept<a href="http://ivanlihachev.ru">Ivan&nbspLihachev</a></span></div>
+  </body>
+  <script src="https://code.jquery.com/jquery-1.7.1.min.js"></script>
+  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+  <script src="lib/jquery.ui.touch-punch.min.js"></script>
+  <script src="lib/number-divider.min.js"></script>
+  <script src="scripts.js"></script>
 </html>
