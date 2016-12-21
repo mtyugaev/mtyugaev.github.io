@@ -103,6 +103,7 @@ a:hover, a:active { color:#fff; text-decoration: underline; }
 }
 
 .btn-link {
+	text-decoration: underline;
 	color:rgba(255,255,255,.8);
 }
 .btn-link:hover, .btn-link:focus, .btn-link:active {
